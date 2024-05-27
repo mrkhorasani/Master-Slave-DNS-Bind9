@@ -2,26 +2,26 @@
 
 **Information**\
 Domain used: my.domain.loc [Change and use your own].\
-Hostname: SRV1 and SRV2 [Change and use your own].\
-SRV1 IP address: 192.168.0.252 [Change and use your own].\
-SRV2 IP address: 192.168.0.253[Change and use your own].\
+Hostname: srv01 and srv02 [Change and use your own].\
+srv01 IP address: 192.168.0.252 [Change and use your own].\
+srv02 IP address: 192.168.0.253[Change and use your own].\
 
 ****************************
 **Perquisites**\
 An Ubuntu / Debian machine
-Updating Ubuntu/Debian (Both servers SRV1 and SRV2)
+Updating Ubuntu/Debian (Both servers srv01 and srv02)
 Before starting it is always a good practice to update your Linux system. To do this just open up your terminal and type the following commands:
-![image](https://github.com/mrkhorasani/Master-Slave-DNS-Bind9/assets/51242725/3583ba74-b340-4a38-97d0-421860c31339)
+
 
 sudo apt -y update && sudo apt -y upgrade
-Install Bind9 (Both servers SRV1 and SRV2)
+Install Bind9 (Both servers srv01 and srv02)
 The next step is to install Bind9 along with some utilities.
 
 ![gtmetrix](https://github.com/mrkhorasani/Master-Slave-DNS-Bind9/assets/51242725/75113440-01dc-4471-b0df-d1c6a71bd619)
 
 
 sudo nano apt -y install bind9 bind9-utils bind9-dnsutils
-Configuring a static IP address (Both servers SRV1 and SRV2)
+Configuring a static IP address (Both servers srv01 and srv02)
 The next logical step is to set a static IP address. The first thing we will do is to type the following command to find out the name of the network interface we are using.
 
 sudo ip -c link show
@@ -47,7 +47,7 @@ sudo netplan apply
 Finally restart your network manager by using the command below.
 
 sudo systemctl restart network-manager.service
-Changing the hosts file (Both servers SRV1 and SRV2)
+Changing the hosts file (Both servers srv01 and srv02)
 In this step we will change the hosts file to include the fully qualified name to this Ubuntu machine. The fully qualified name is the machine name followed by the domain name. To do so first we open the hosts file. I will be using Nano text editor.
 
 sudo nano /etc/hosts
@@ -55,19 +55,19 @@ Once the file opens change the host and IP name with your own IP and hostname al
 ![image](https://github.com/mrkhorasani/Master-Slave-DNS-Bind9/assets/51242725/935ae2d2-a630-4907-b2ea-e868f7c9b2d8)
 
 
-figure 1. /etc/hosts file SRV1
+figure 1. /etc/hosts file srv01
 
-figure 2. /etc/hosts file SRV2
+figure 2. /etc/hosts file srv02
 Next we will restart our server for the changes to take effect.
 
 sudo reboot
-Changing the DNS server (Both servers SRV1 and SRV2)
+Changing the DNS server (Both servers srv01 and srv02)
 In this step we will point our Ubuntu machine to use itself as a DNS server. To do this open /etc/resolv.conf using your favourite text editor, I will be using Nano. After this just add the IP address of your Linux machine (see figure 3 and 4).
 
 
-figure 3. /etc/resolv.conf file SRV1
+figure 3. /etc/resolv.conf file srv01
 
-figure 3. /etc/resolv.conf file SRV2
+figure 3. /etc/resolv.conf file srv02
 An issue that I ran to from time to time when changing my DNS server in Ubuntu, is that it reverts to using localhost.
 
 A simple way to get passed this is removing the resolv.conf file > create it again, add the name server info to it, then deny access. Here are the commands below.
