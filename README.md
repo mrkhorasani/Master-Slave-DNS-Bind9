@@ -9,10 +9,14 @@ Perquisites
 An Ubuntu / Debian machine
 Updating Ubuntu/Debian (Both servers SRV1 and SRV2)
 Before starting it is always a good practice to update your Linux system. To do this just open up your terminal and type the following commands:
+![image](https://github.com/mrkhorasani/Master-Slave-DNS-Bind9/assets/51242725/3583ba74-b340-4a38-97d0-421860c31339)
 
 sudo apt -y update && sudo apt -y upgrade
 Install Bind9 (Both servers SRV1 and SRV2)
 The next step is to install Bind9 along with some utilities.
+
+![gtmetrix](https://github.com/mrkhorasani/Master-Slave-DNS-Bind9/assets/51242725/75113440-01dc-4471-b0df-d1c6a71bd619)
+
 
 sudo nano apt -y install bind9 bind9-utils bind9-dnsutils
 Configuring a static IP address (Both servers SRV1 and SRV2)
