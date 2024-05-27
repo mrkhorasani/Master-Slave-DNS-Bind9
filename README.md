@@ -1,8 +1,8 @@
 # Master-Slave-DNS-Bind9
 
 Information
-Domain used: My.domain.loc [Change and use your own].
-Hostname: SRV1 and SRV2 [Change and use your own].
+Domain used: My.domain.loc [Change and use your own].\
+Hostname: SRV1 and SRV2 [Change and use your own]./
 SRV1 IP address: 192.168.0.252 [Change and use your own].
 SRV2 IP address: 192.168.0.253[Change and use your own].
 Perquisites
