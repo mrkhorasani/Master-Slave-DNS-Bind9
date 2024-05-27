@@ -1,11 +1,13 @@
 # Master-Slave-DNS-Bind9
 
-Information
+**Information**
 Domain used: My.domain.loc [Change and use your own].\
-Hostname: SRV1 and SRV2 [Change and use your own]./
-SRV1 IP address: 192.168.0.252 [Change and use your own].
-SRV2 IP address: 192.168.0.253[Change and use your own].
-Perquisites
+Hostname: SRV1 and SRV2 [Change and use your own].\
+SRV1 IP address: 192.168.0.252 [Change and use your own].\
+SRV2 IP address: 192.168.0.253[Change and use your own].\
+
+****************************
+**Perquisites**
 An Ubuntu / Debian machine
 Updating Ubuntu/Debian (Both servers SRV1 and SRV2)
 Before starting it is always a good practice to update your Linux system. To do this just open up your terminal and type the following commands:
