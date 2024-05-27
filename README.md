@@ -1,13 +1,13 @@
 # Master-Slave-DNS-Bind9
 
-**Information**
-Domain used: My.domain.loc [Change and use your own].\
+**Information**\
+Domain used: my.domain.loc [Change and use your own].\
 Hostname: SRV1 and SRV2 [Change and use your own].\
 SRV1 IP address: 192.168.0.252 [Change and use your own].\
 SRV2 IP address: 192.168.0.253[Change and use your own].\
 
 ****************************
-**Perquisites**
+**Perquisites**\
 An Ubuntu / Debian machine
 Updating Ubuntu/Debian (Both servers SRV1 and SRV2)
 Before starting it is always a good practice to update your Linux system. To do this just open up your terminal and type the following commands:
@@ -113,9 +113,9 @@ Edit the details below to fit your infrastructure (zone name and secondary serve
 Make sure to add the correct path for your master zone. I will create the zone within a folder called zones, that I will create in the next step.
 
 //MasterZone 
-zone “My.domain.loc” {
+zone “my.domain.loc” {
  type master;
- file “/etc/bind/zones/db.My.domain.loc”;
+ file “/etc/bind/zones/db.my.domain.loc”;
 //secondary server IP address
  allow-transfer {192.168.0.253;};
  also-notify {192.168.0.253;};
@@ -125,7 +125,7 @@ The next step is to create the zones folder and then the zone file. To do so use
 #creating the folder
 sudo mkdir /etc/bind/zones
 #creating the zone file
-sudo touch /etc/bind/zones/db.My.domain.loc
+sudo touch /etc/bind/zones/db.my.domain.loc
 The next step is to edit the file and configure our master DNS zone, along with adding some records for testing purposes.
 
 To open the file, use the following command.
@@ -138,7 +138,7 @@ P.S: Make sure to increment the serial by one every time you make a change.
 
 The next step is to test the zone file using the named-checkzone utility. If there are no errors then your configurations are correct.
 
-named-checkzone My.domain.loc /etc/bind/zones/db.My.domain.loc
+named-checkzone my.domain.loc /etc/bind/zones/db.my.domain.loc
 The last step is to restart the service. To do so type the command below.
 
 sudo service bind9 restart
@@ -174,10 +174,10 @@ The next step is to edit the file named.conf.local to add the zone information. 
 sudo nano /etc/bind/named.conf.local
 Edit the following information to fit your environment, then add it to the file.
 
-zone “My.domain.loc” {
+zone “my.domain.loc” {
  type slave;
  //Master zone name
- file “db.My.domain.loc”;
+ file “db.my.domain.loc”;
  //Master server IP address
  masters {192.168.0.252;};
  allow-notify {192.168.0.252;};
