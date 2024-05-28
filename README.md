@@ -240,7 +240,12 @@ You can check the syntax using the following command. If everything is correct, 
 ```
 sudo named-checkconf /etc/bind/named.conf.options
 ```
-The next step is to edit the file ```named.conf.local``` to add the zone information. To do so, use the following command.
+The next step is to edit the file ```named.conf.local``` to add the zone information. To do so, use the following command.\
+
+The next step is to create the zones folder.\
+**Creating the folder
+**```
+sudo mkdir /etc/bind/zones
 
 ```
 sudo nano /etc/bind/named.conf.local
@@ -250,7 +255,7 @@ Edit the following information to fit your environment, then add it to the file.
 zone “domain.loc” {
  type slave;
  //Master zone name
- file “domain.loc.db”;
+ file "/etc/bind/zones/domain.loc.db";
  //Master server IP address
  masters {192.168.0.201; };
  allow-notify {192.168.0.201; };
