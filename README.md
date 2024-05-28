@@ -15,7 +15,7 @@ $ sudo apt -y update && sudo apt -y upgrade
 \
 Install Bind9 (Both servers srv01 and srv02)\
 The next step is to install Bind9 along with some utilities.\
-$ sudo nano apt -y install bind9 bind9-utils bind9-dnsutils
+$ apt -y install bind9 bind9-utils bind9-dnsutils
 \
 \
 Configuring a static IP address (Both servers srv01 and srv02)
