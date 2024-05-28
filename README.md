@@ -153,11 +153,11 @@ zone "domain.loc" {
 ```
 The next step is to create the zones folder and then the zone file. To do so use the following commands. Note that you should edit the file name to fit your own zone name, and make sure to update the name in the configurations above as well.
 
-#creating the folder
+**#Creating the zone folder**
 ```
 sudo mkdir /etc/bind/zones
 ```
-#creating the zone file
+**#creating the zone file**
 ```
 sudo touch /etc/bind/zones/domain.loc.db
 ```
@@ -243,7 +243,7 @@ sudo named-checkconf /etc/bind/named.conf.options
 The next step is to edit the file ```named.conf.local``` to add the zone information. To do so, use the following command.\
 
 The next step is to create the zones folder.\
-**#Creating the folder**
+**#Creating the zone folder**
 ```
 sudo mkdir /etc/bind/zones
 
