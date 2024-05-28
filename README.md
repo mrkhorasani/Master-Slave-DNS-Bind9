@@ -268,9 +268,9 @@ Finally, let’s restart the DNS server.
 ```
 sudo systemctl restart bind9
 ```
-Now let’s check if the zone file has been transferred. This is usually transferred to the location “/var/cache/bind”. I will list all the files within that folder and do a search text on the word “linux” which is a part of my domain to list all files that include that word. Make sure to edit the command below to fit your domain name.
+Now let’s check if the zone file has been transferred. This is usually transferred to the location “/var/cache/bind/”. I will list all the files within that folder and do a search text on the word “domain” which is a part of my domain to list all files that include that word. Make sure to edit the command below to fit your domain name.
 ```
-ls /var/cache/bind | grep linux
+ls /var/cache/bind | grep domain
 ```
 If all goes well, you should get a similar result as below, showing you that a copy of your master zone file exists on the secondary server.
 
