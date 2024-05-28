@@ -154,25 +154,32 @@ zone "domain.loc" {
 The next step is to create the zones folder and then the zone file. To do so use the following commands. Note that you should edit the file name to fit your own zone name, and make sure to update the name in the configurations above as well.
 
 #creating the folder
+```
 sudo mkdir /etc/bind/zones
+```
 #creating the zone file
+```
 sudo touch /etc/bind/zones/db.domain.loc
+```
 The next step is to edit the file and configure our master DNS zone, along with adding some records for testing purposes.
 
 To open the file, use the following command.
-
+```
 sudo nano /etc/bind/zones/[your file name]
+```
 Add the following configuration to your own file, keeping in mind that you need to change the details to fit your environment.
 
 P.S: Make sure to increment the serial by one every time you make a change.
 
 
 The next step is to test the zone file using the named-checkzone utility. If there are no errors then your configurations are correct.
-
+```
 named-checkzone domain.loc /etc/bind/zones/db.domain.loc
+```
 The last step is to restart the service. To do so type the command below.
-
+```
 sudo service bind9 restart
+```
 That’s it for the master server.
 
 Configuring the slave/secondary Bind DNS server
@@ -181,30 +188,45 @@ Following the steps above so far: the master server should be configured complet
 The next step is to configure the secondary server to receive a copy of the master zone.
 
 Much like the master server, the first thing we will configure is the Bind9 named.conf.options file. We will open the file using the following command.
-
+```
 sudo nano /etc/bind/named.conf.options
+```
 Edit the following configuration to fit your environment.
-
-acl “trusted” {
- 10.10.10.0/24;
+```
+//Creating an ACL with the subnet that will be allowed to do DNS queries against this server
+acl "trusted" {
+ 192.168.0.0/24;
 };
 options {
- directory “/var/cache/bind”;
- allow-transfer {none;};
- allow-query {trusted;};
- listen-on port 53 {localhost; 192.168.0.202;};
- recursion no;
- dnssec-validation auto;
- listen-on-v6 { any; };
+    directory "/var/cache/bind";
+//allowing only the subnet within the ACL to query this server
+    allow-query { trusted; };
+    listen-on port 53 {localhost; 192.168.0.202; };
+// enables recursive queries
+    recursion yes;
+    allow-recursion { trusted; };
+//Disabling the zone transfer for anyone.
+    allow-transfer { none; };
+    forwarders {
+        8.8.8.8;
+        8.8.4.4;
+    };
+    dnssec-validation auto;
+    listen-on-v6 { any; };
 };
-You can check the syntax using the following command. If everything is correct, you should get no error.
+```
 
+You can check the syntax using the following command. If everything is correct, you should get no error.
+```
 sudo named-checkconf /etc/bind/named.conf.options
+```
 The next step is to edit the file named.conf.local to add the zone information. To do so, use the following command.
 
+```
 sudo nano /etc/bind/named.conf.local
+```
 Edit the following information to fit your environment, then add it to the file.
-
+```
 zone “domain.loc” {
  type slave;
  //Master zone name
@@ -213,16 +235,19 @@ zone “domain.loc” {
  masters {192.168.0.201;};
  allow-notify {192.168.0.201;};
 };
+```
 Let’s check the syntax again using the following command.
-
+```
 sudo named-checkconf /etc/bind/named.conf.local
+```
 Finally, let’s restart the DNS server.
 
 sudo systemctl restart bind9
-Now let’s check if the zone file has been transfered. This is usally transfered to the location “/var/cache/bind”. I will list all the files within that folder and do a search text on the word “linux” that is a part of my domain to list all files that includes that word. Make sure to edit the command below to fit your domain name.
-
+Now let’s check if the zone file has been transferred. This is usually transferred to the location “/var/cache/bind”. I will list all the files within that folder and do a search text on the word “linux” which is a part of my domain to list all files that include that word. Make sure to edit the command below to fit your domain name.
+```
 ls /var/cache/bind | grep linux
-If all went well, you should get a similar result as below, showing you that a copy of your master zone file exists on the secondary server.
+```
+If all goes well, you should get a similar result as below, showing you that a copy of your master zone file exists on the secondary server.
 
 
 That’s it. I hope this was relatively painless. Should you run into problems please do not hesitate to ask in the comments below.
