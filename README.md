@@ -173,8 +173,8 @@ P.S: Make sure to increment the serial by one every time you make a change.
 ```
 ; BIND data file for local loopback interface
 ;
-$TTL    86400                           ; 1Day
-@       IN      SOA     srv01.domain.local. root.domain.local. (
+$TTL      86400                         ; (DAILY)
+@         IN      SOA     srv01.domain.local. root.domain.local. (
                               5         ; Serial
                          604800         ; Refresh (WEEKLY)
                           86400         ; Retry   (DAILY)
