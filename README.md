@@ -49,13 +49,14 @@ Now let’s apply this netplan by typing the command below.
 sudo netplan apply
 ```
 Finally, restart your network manager by using the command below.
-
+```
 sudo systemctl restart network-manager.service
 ```
 Changing the host file (Both servers srv01 and srv02)
 In this step, we will change the host file to include the fully qualified name of this Ubuntu machine. The fully qualified name is the machine name followed by the domain name. To do so first we open the host file. I will be using the Nano text editor.
-
+```
 sudo nano /etc/hosts
+```
 Once the file opens change the host and IP name with your own IP and hostname along with the fully qualified name (see figure 1 and 2).
 ![image](https://github.com/mrkhorasani/Master-Slave-DNS-Bind9/assets/51242725/935ae2d2-a630-4907-b2ea-e868f7c9b2d8)
 
@@ -65,7 +66,9 @@ figure 1. /etc/hosts file srv01
 figure 2. /etc/hosts file srv02
 Next we will restart our server for the changes to take effect.
 
+```
 sudo reboot
+```
 Changing the DNS server (Both servers srv01 and srv02)
 In this step we will point our Ubuntu machine to use itself as a DNS server. To do this open /etc/resolv.conf using your favourite text editor, I will be using Nano. After this just add the IP address of your Linux machine (see figure 3 and 4).
 
@@ -77,8 +80,14 @@ An issue that I ran to from time to time when changing my DNS server in Ubuntu, 
 
 A simple way to get passed this is removing the resolv.conf file > create it again, add the name server info to it, then deny access. Here are the commands below.
 
+```
 sudo rm /etc/resolv.conf #Deleting the resolv.conf file
-sudo nano /etc/resolv.conf #creating the file again and opening it #with nano and add the DNS server IP address
+```
+creating the file again and opening it #with nano and add the DNS server IP address
+```
+sudo nano /etc/resolv.conf
+```
+#creating the file again and opening it #with nano and add the DNS server IP address
 #limiting access to the resolv.conf file.
 sudo chattr +i /etc/resolv.conf #after adding the DNS server 
 Editing Bind9 options file (Master Server)
