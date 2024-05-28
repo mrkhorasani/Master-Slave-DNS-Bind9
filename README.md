@@ -240,13 +240,12 @@ You can check the syntax using the following command. If everything is correct, 
 ```
 sudo named-checkconf /etc/bind/named.conf.options
 ```
-The next step is to edit the file ```named.conf.local``` to add the zone information. To do so, use the following command.\
-
 The next step is to create the zones folder.\
 **#Creating the zone folder**
 ```
 sudo mkdir /etc/bind/zones
-
+```
+The next step is to edit the file ```named.conf.local``` to add the zone information. To do so, use the following command.\
 ```
 sudo nano /etc/bind/named.conf.local
 ```
