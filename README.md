@@ -11,7 +11,7 @@ An Ubuntu / Debian machine\
 Updating Ubuntu/Debian (Both servers srv01 and srv02)\
 Before starting it is always a good practice to update your Linux system. To do this just open up your terminal and type the following commands:\
 
-```diff
+```
 sudo apt -y update && sudo apt -y upgrade
 ```
 
@@ -19,7 +19,8 @@ sudo apt -y update && sudo apt -y upgrade
 \
 Install Bind9 (Both servers srv01 and srv02)\
 The next step is to install Bind9 along with some utilities.\
-```apt -y install bind9 bind9-utils bind9-dnsutils```
+```
+apt -y install bind9 bind9-utils bind9-dnsutils```
 \
 \
 Configuring a static IP address (Both servers srv01 and srv02)
