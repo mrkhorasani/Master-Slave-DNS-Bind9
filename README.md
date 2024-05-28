@@ -73,7 +73,7 @@ Next we will restart our server for the changes to take effect.
 sudo reboot
 ```
 Changing the DNS server (Both servers srv01 and srv02)\
-In this step, we will point our Ubuntu machine to use itself as a DNS server. To do this open ```/etc/resolv.conf``` using your favourite text editor, I will be using Nano. After this just add the IP address of your Linux machine (see figure 3 and 4).\
+In this step, we will point our Ubuntu machine to use itself as a DNS server. To do this open ```/etc/resolv.conf``` using your favourite text editor, I will be using Nano. After this just add the IP address of your Linux machine (see figure 3 and 4).
 
 
 figure 3. /etc/resolv.conf file srv01
