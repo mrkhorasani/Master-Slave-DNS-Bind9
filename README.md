@@ -251,7 +251,7 @@ sudo nano /etc/bind/named.conf.local
 ```
 Edit the following information to fit your environment, then add it to the file.
 ```
-zone “domain.loc” {
+zone "domain.loc" {
  type slave;
  //Master zone name
  file "/etc/bind/zones/domain.loc.db";
