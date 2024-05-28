@@ -147,8 +147,8 @@ zone "domain.loc" {
  type master;
  file "/etc/bind/zones/db.domain.loc";
 //secondary server IP address
- allow-transfer {192.168.0.202;};
- also-notify {192.168.0.202;};
+ allow-transfer {192.168.0.202; };
+ also-notify {192.168.0.202; };
 };
 ```
 The next step is to create the zones folder and then the zone file. To do so use the following commands. Note that you should edit the file name to fit your own zone name, and make sure to update the name in the configurations above as well.
