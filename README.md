@@ -29,8 +29,9 @@ sudo ip -c link show
 Open the YAML configuration file for your netplan by typing the command below.
 ```
 sudo nano /etc/netplan/01-network-manager-all.yaml
-Enter the information below but customize it to fit your network information. I.E your interface name, IP address etc.
 ```
+Enter the information below but customize it to fit your network information. I.E your interface name, IP address etc.
+
 network:
   version: 2
   renderer: NetworkManager
