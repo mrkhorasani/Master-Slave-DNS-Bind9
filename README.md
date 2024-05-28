@@ -145,7 +145,7 @@ Make sure to add the correct path for your master zone. I will create the zone w
 //MasterZone
 zone "domain.loc" {
  type master;
- file "/etc/bind/zones/db.domain.loc";
+ file "/etc/bind/zones/domain.loc.deb";
 //secondary server IP address
  allow-transfer {192.168.0.202; };
  also-notify {192.168.0.202; };
@@ -159,7 +159,7 @@ sudo mkdir /etc/bind/zones
 ```
 #creating the zone file
 ```
-sudo touch /etc/bind/zones/db.domain.loc
+sudo touch /etc/bind/zones/domain.loc.deb
 ```
 The next step is to edit the file and configure our master DNS zone, along with adding some records for testing purposes.
 
@@ -230,7 +230,7 @@ Edit the following information to fit your environment, then add it to the file.
 zone “domain.loc” {
  type slave;
  //Master zone name
- file “db.domain.loc”;
+ file “domain.loc.deb”;
  //Master server IP address
  masters {192.168.0.201;};
  allow-notify {192.168.0.201;};
