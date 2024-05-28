@@ -12,7 +12,7 @@ Updating Ubuntu/Debian (Both servers srv01 and srv02)\
 Before starting it is always a good practice to update your Linux system. To do this just open up your terminal and type the following commands:\
 
 ```diff
-# sudo apt -y update && sudo apt -y upgrade
+sudo apt -y update && sudo apt -y upgrade
 ```
 
 \
