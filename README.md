@@ -8,7 +8,10 @@ srv02 IP address: 192.168.0.202[Change and use your own].
 ****************************
 **Perquisites**\
 An Ubuntu / Debian machine\
-Updating Ubuntu/Debian (Both servers srv01 and srv02)\
+In my scenario, I used "Ubuntu 22.04.4 LTS". The image below shows the details of our operating system:\
+![image](https://github.com/mrkhorasani/Master-Slave-DNS-Bind9/assets/51242725/e6e0b953-dfd8-48fe-aeb2-61869278f0ec)
+
+#Updating Ubuntu/Debian (Both servers srv01 and srv02)\
 Before starting it is always a good practice to update your Linux system. To do this, only open up your terminal and type the following commands:
 
 ```
