@@ -252,8 +252,8 @@ zone “domain.loc” {
  //Master zone name
  file “domain.loc.deb”;
  //Master server IP address
- masters {192.168.0.201;};
- allow-notify {192.168.0.201;};
+ masters {192.168.0.201; };
+ allow-notify {192.168.0.201; };
 };
 ```
 Let’s check the syntax again using the following command.
