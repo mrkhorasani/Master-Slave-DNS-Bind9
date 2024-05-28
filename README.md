@@ -165,7 +165,7 @@ The next step is to edit the file and configure our master DNS zone, along with 
 
 To open the file, use the following command.
 ```
-sudo nano /etc/bind/zones/db.domain.loc
+sudo nano /etc/bind/zones/domain.loc.db
 ```
 Add the following configuration to your own file, keeping in mind that you need to change the details to fit your environment.
 
@@ -193,7 +193,7 @@ ftp     IN      A       12.12.12.12
 ```
 The next step is to test the zone file using the named-checkzone utility. If there are no errors then your configurations are correct.
 ```
-named-checkzone domain.loc /etc/bind/zones/db.domain.loc
+named-checkzone domain.loc /etc/bind/zones/domain.loc.db
 ```
 The last step is to restart the service. To do so type the command below.
 ```
