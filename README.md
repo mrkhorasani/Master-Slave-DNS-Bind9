@@ -87,19 +87,20 @@ A simple way to get past this is removing the resolv.conf file > create it again
 ```
 sudo rm /etc/resolv.conf #Deleting the resolv.conf file
 ```
-creating the file again, and opening it #with nano and add the DNS server IP address
+create the file again, open it #with nano, and add the DNS server IP address
 ```
 sudo nano /etc/resolv.conf
 ```
-creating the file again and opening it #with nano and adding the DNS server IP address\
+creating the file again,  opening it #with nano, and adding the DNS server IP address\
 limiting access to the resolv.conf file, after adding the DNS server.
 ```
 sudo chattr +i /etc/resolv.conf
 ```
-Editing Bind9 options file (Master Server)
+******************************************
+#Editing Bind9 options file (Master Server)
 Now that we have laid the groundwork for our Bind DNS server, let’s start editing the configuration.
 
-Start with editing the named.conf.options file. In this file we will add what network/IP addresses can send a query to this server by defining an ACL (Access control list). We will also disable the recursion since we will only be using this server as an authoritative DNS server.
+Start with editing the named.conf.options file. In this file, we will add what network/IP addresses can send a query to this server by defining an ACL (Access control list). We will also disable the recursion since we will be only using this server as an authoritative DNS server.
 
 Open the Bind options file using the command below.
 
