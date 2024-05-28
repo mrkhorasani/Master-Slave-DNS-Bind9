@@ -181,15 +181,16 @@ $TTL    504800
                         2419200         ; Expire
                          604800 )       ; Negative Cache TTL
 ;Primary and secondary IP address and fully qualified name
-@       IN      NS      srv01.domain.loc.
-        IN      NS      srv02.domain.loc.
-@       IN      A       192.168.0.201
+@          IN       NS      srv01.domain.loc.
+           IN       NS      srv02.domain.loc.
+@          IN       A       192.168.0.201
 
 ;Arecords
-srv01    IN      A       192.168.0.201
-srv02    IN      A       192.168.0.202
-web     IN      A       20.20.20.20
-ftp     IN      A       12.12.12.12
+srv01      IN       A       192.168.0.201
+srv02      IN       A       192.168.0.202
+web        IN       A       20.20.20.20
+ftp        IN       A       12.12.12.12
+
 ```
 The next step is to test the zone file using the named-checkzone utility. If there are no errors then your configurations are correct.
 ```
