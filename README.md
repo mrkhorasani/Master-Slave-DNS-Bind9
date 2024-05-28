@@ -101,13 +101,13 @@ sudo chattr +i /etc/resolv.conf
 
 Now that we have laid the groundwork for our Bind DNS server, let’s start editing the configuration.
 
-Start with editing the named.conf.options file. In this file, we will add what network/IP addresses can send a query to this server by defining an ACL (Access control list). We will also disable the recursion since we will be only using this server as an authoritative DNS server.
-
+Start with editing the ```named.conf.options``` file. In this file, we will add what network/IP addresses can send a query to this server by defining an ACL (Access control list). We will also disable the recursion since we will be only using this server as an authoritative DNS server.\
 Open the Bind options file using the command below.
-
+```
 sudo nano /etc/bind/named.conf.options
+```
 Edit the configuration below to fit your environment.
-
+```
 //Creating an ACL with the subnet that will be allowed to do DNS queries against this server
 acl “trusted” {
  10.10.10.0/24;
@@ -124,16 +124,19 @@ options {
  dnssec-validation auto;
  listen-on-v6 { any; };
 };
+```
 You can check the syntax using the following command. If everything is correct, you should get no error.
-
+```
 sudo named-checkconf /etc/bind/named.conf.options
-The next step is to edit the named.conf.local file to add some details about the zone we will create. To do so open the file using the command below:
-
+```
+The next step is to edit the ```named.conf.local``` file to add some details about the zone we will create. To do so open the file using the command below:
+```
 sudo nano /etc/bind/named.conf.local
+```
 Edit the details below to fit your infrastructure (zone name and secondary server IP address), then add those details to your file and save it.
 
-Make sure to add the correct path for your master zone. I will create the zone within a folder called zones, that I will create in the next step.
-
+Make sure to add the correct path for your master zone. I will create the zone within a folder called Zones, which We will create in the next step.
+```
 //MasterZone 
 zone “domain.loc” {
  type master;
@@ -142,6 +145,7 @@ zone “domain.loc” {
  allow-transfer {192.168.0.202;};
  also-notify {192.168.0.202;};
 };
+```
 The next step is to create the zones folder and then the zone file. To do so use the following commands. Note that you should edit the file name to fit your own zone name, and make sure to update the name in the configurations above as well.
 
 #creating the folder
