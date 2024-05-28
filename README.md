@@ -173,24 +173,24 @@ P.S: Make sure to increment the serial by one every time you make a change.
 ```
 ; BIND data file for local loopback interface
 ;
-$TTL    504800
-@       IN      SOA     srv01.domain.loc. root.srv01.domain.loc>
+$TTL    86400                           ; 1Day
+@       IN      SOA     srv01.domain.local. root.domain.local. (
                               5         ; Serial
-                         604800         ; Refresh
-                          86400         ; Retry
+                         604800         ; Refresh (WEEKLY)
+                          86400         ; Retry   (DAILY)
                         2419200         ; Expire
-                         604800 )       ; Negative Cache TTL
+                         604800         ; Negative Cache TTL
+                         )
 ;Primary and secondary IP address and fully qualified name
-@          IN       NS      srv01.domain.loc.
-           IN       NS      srv02.domain.loc.
-@          IN       A       192.168.0.201
+@          IN      NS      srv01.domain.local.
+           IN      NS      srv02.domain.local.
+@          IN      A       192.168.0.201
 
 ;Arecords
-srv01      IN       A       192.168.0.201
-srv02      IN       A       192.168.0.202
-web        IN       A       20.20.20.20
-ftp        IN       A       12.12.12.12
-
+srv01      IN      A       192.168.0.201
+srv02      IN      A       192.168.0.202
+web        IN      A       20.20.20.20
+ftp        IN      A       12.12.12.12
 ```
 The next step is to test the zone file using the named-checkzone utility. If there are no errors then your configurations are correct.
 ```
