@@ -109,9 +109,9 @@ sudo nano /etc/bind/named.conf.options
 Edit the configuration below to fit your environment.
 ```
 //Creating an ACL with the subnet that will be allowed to do DNS queries against this server
-acl “trusted” {
- 192.168.0.0/24; };
-
+acl "trusted" {
+ 192.168.0.0/24;
+};
 options {
     directory "/var/cache/bind";
 //allowing only the subnet within the ACL to query this server
