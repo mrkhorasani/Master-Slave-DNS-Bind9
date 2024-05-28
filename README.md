@@ -275,4 +275,4 @@ ls /var/cache/bind | grep domain
 If all goes well, you should get a similar result as below, showing you that a copy of your master zone file exists on the secondary server.
 
 
-That’s it. I hope this was relatively painless. Should you run into problems please do not hesitate to ask in the comments below.
+That’s it. I hope this was relatively painless. Should you run into problems please do not hesitate to ask me....
