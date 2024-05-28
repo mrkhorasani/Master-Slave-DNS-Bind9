@@ -254,7 +254,7 @@ Edit the following information to fit your environment, then add it to the file.
 zone "domain.loc" {
  type slave;
  //Master zone name
- file "/etc/bind/zones/domain.loc.db";
+ file "domain.loc.db";
  //Master server IP address
  masters {192.168.0.201; };
  allow-notify {192.168.0.201; };
