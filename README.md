@@ -12,6 +12,7 @@ Updating Ubuntu/Debian (Both servers srv01 and srv02)\
 Before starting it is always a good practice to update your Linux system. To do this just open up your terminal and type the following commands:\
 $ sudo apt -y update && sudo apt -y upgrade
 \
+\
 Install Bind9 (Both servers srv01 and srv02)\
 The next step is to install Bind9 along with some utilities.
 
