@@ -67,13 +67,13 @@ figure 2. /etc/hosts file srv02
 ![image](https://github.com/mrkhorasani/Master-Slave-DNS-Bind9/assets/51242725/cde41d91-ba73-4af2-be1a-b705670c7a6a)
 \
                 
-Next we will restart our server for the changes to take effect.
+Next, we will restart our server for the changes to take effect.
 
 ```
 sudo reboot
 ```
 Changing the DNS server (Both servers srv01 and srv02)\
-In this step, we will point our Ubuntu machine to use itself as a DNS server. To do this open ```/etc/resolv.conf``` using your favorite text editor, I will be using Nano. After this just add the IP address of your Linux machine (see figure 3 and 4).
+In this step, we will point our Ubuntu machine to use itself as a DNS server. To do this open ```/etc/resolv.conf``` using your favorite text editor, I will be using Nano. After this,  add the IP address of your Linux machine (see Figures 3 and 4).
 
 figure 3. /etc/resolv.conf file srv01\
 ![image](https://github.com/mrkhorasani/Master-Slave-DNS-Bind9/assets/51242725/0861b8f3-4411-4efb-87ad-3eddc7dbeef6)
@@ -81,20 +81,21 @@ figure 3. /etc/resolv.conf file srv01\
 figure 3. /etc/resolv.conf file srv02\
 ![image](https://github.com/mrkhorasani/Master-Slave-DNS-Bind9/assets/51242725/87896482-5264-4426-86ea-7aeff873c776)
 
-An issue that I ran to from time to time when changing my DNS server in Ubuntu, is that it reverts to using localhost.\
-
-A simple way to get passed this is removing the resolv.conf file > create it again, add the name server info to it, then deny access. Here are the commands below.\
+An issue that I ran into from time to time when changing my DNS server in Ubuntu, is that it reverts to using localhost.\
+A simple way to get past this is removing the resolv.conf file > create it again, add the name server info, then deny access. Here are the commands below.
 
 ```
 sudo rm /etc/resolv.conf #Deleting the resolv.conf file
 ```
-creating the file again and opening it #with nano and add the DNS server IP address
+creating the file again, and opening it #with nano and add the DNS server IP address
 ```
 sudo nano /etc/resolv.conf
 ```
-#creating the file again and opening it #with nano and add the DNS server IP address
-#limiting access to the resolv.conf file.
-sudo chattr +i /etc/resolv.conf #after adding the DNS server 
+creating the file again and opening it #with nano and adding the DNS server IP address\
+limiting access to the resolv.conf file, after adding the DNS server.
+```
+sudo chattr +i /etc/resolv.conf
+```
 Editing Bind9 options file (Master Server)
 Now that we have laid the groundwork for our Bind DNS server, let’s start editing the configuration.
 
