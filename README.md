@@ -110,19 +110,24 @@ Edit the configuration below to fit your environment.
 ```
 //Creating an ACL with the subnet that will be allowed to do DNS queries against this server
 acl “trusted” {
- 10.10.10.0/24;
-};
+ 192.168.0.0/24; };
+
 options {
- directory “/var/cache/bind”;
-//Disabling the zone transfer for anyone. 
- allow-transfer {none;};
-//allowing only the subnet within the ACL to query this server 
- allow-query {trusted;};
- listen-on port 53 {localhost; 192.168.0.201;};
-//Disabling recursion
- recursion no;
- dnssec-validation auto;
- listen-on-v6 { any; };
+    directory "/var/cache/bind";
+//allowing only the subnet within the ACL to query this server
+    allow-query { trusted; };
+    listen-on port 53 {localhost; 192.168.0.201; };
+// enables recursive queries
+    recursion yes;
+    allow-recursion { trusted; };
+//Disabling the zone transfer for anyone.
+    allow-transfer { none; };
+    forwarders {
+        8.8.8.8;
+        8.8.4.4;
+    };
+    dnssec-validation auto;
+    listen-on-v6 { any; };
 };
 ```
 You can check the syntax using the following command. If everything is correct, you should get no error.
