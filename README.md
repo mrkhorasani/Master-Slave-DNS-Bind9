@@ -3,8 +3,8 @@
 **Information**\
 Domain used: domain.loc [Change and use your own].\
 Hostname: srv01 and srv02 [Change and use your own].\
-srv01 IP address: 192.168.0.252 [Change and use your own].\
-srv02 IP address: 192.168.0.253[Change and use your own].
+srv01 IP address: 192.168.0.201 [Change and use your own].\
+srv02 IP address: 192.168.0.202[Change and use your own].
 ****************************
 **Perquisites**\
 An Ubuntu / Debian machine\
@@ -112,7 +112,7 @@ options {
  allow-transfer {none;};
 //allowing only the subnet within the ACL to query this server 
  allow-query {trusted;};
- listen-on port 53 {localhost; 192.168.0.252;};
+ listen-on port 53 {localhost; 192.168.0.201;};
 //Disabling recursion
  recursion no;
  dnssec-validation auto;
@@ -133,8 +133,8 @@ zone “domain.loc” {
  type master;
  file “/etc/bind/zones/db.domain.loc”;
 //secondary server IP address
- allow-transfer {192.168.0.253;};
- also-notify {192.168.0.253;};
+ allow-transfer {192.168.0.202;};
+ also-notify {192.168.0.202;};
 };
 The next step is to create the zones folder and then the zone file. To do so use the following commands. Note that you should edit the file name to fit your own zone name, and make sure to update the name in the configurations above as well.
 
@@ -177,7 +177,7 @@ options {
  directory “/var/cache/bind”;
  allow-transfer {none;};
  allow-query {trusted;};
- listen-on port 53 {localhost; 192.168.0.253;};
+ listen-on port 53 {localhost; 192.168.0.202;};
  recursion no;
  dnssec-validation auto;
  listen-on-v6 { any; };
@@ -195,8 +195,8 @@ zone “domain.loc” {
  //Master zone name
  file “db.domain.loc”;
  //Master server IP address
- masters {192.168.0.252;};
- allow-notify {192.168.0.252;};
+ masters {192.168.0.201;};
+ allow-notify {192.168.0.201;};
 };
 Let’s check the syntax again using the following command.
 
