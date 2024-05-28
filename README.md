@@ -9,7 +9,7 @@ srv02 IP address: 192.168.0.202[Change and use your own].
 **Perquisites**\
 An Ubuntu / Debian machine\
 In my scenario, I used "Ubuntu 22.04.4 LTS". The image below shows the details of our operating system:\
-![image](https://github.com/mrkhorasani/Master-Slave-DNS-Bind9/assets/51242725/e6e0b953-dfd8-48fe-aeb2-61869278f0ec)
+![image](https://github.com/mrkhorasani/Master-Slave-DNS-Bind9/assets/51242725/f4fa3e09-a309-4783-bbba-53053ad6d08d)
 
 #Updating Ubuntu/Debian (Both servers srv01 and srv02)\
 Before starting it is always a good practice to update your Linux system. To do this, only open up your terminal and type the following commands:
@@ -98,6 +98,16 @@ creating the file again,  opening it #with nano, and adding the DNS server IP ad
 limiting access to the resolv.conf file, after adding the DNS server.
 ```
 sudo chattr +i /etc/resolv.conf
+```
+**#Firewall Configuration**
+We want to permit (TCP & UDP port 53) in the firewall rule to use the DNS port
+```
+firewall-cmd  --permanent --add-port=53/tcp
+firewall-cmd  --permanent --add-port=53/udp
+```
+Reload the firewall service
+```
+firewall-cmd --reload
 ```
 ******************************************
 # Editing Bind9 options file (Master Server)
