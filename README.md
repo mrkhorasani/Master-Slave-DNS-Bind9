@@ -165,7 +165,7 @@ The next step is to edit the file and configure our master DNS zone, along with 
 
 To open the file, use the following command.
 ```
-sudo nano /etc/bind/zones/[your file name]
+sudo nano /etc/bind/zones/db.domain.loc
 ```
 Add the following configuration to your own file, keeping in mind that you need to change the details to fit your environment.
 
