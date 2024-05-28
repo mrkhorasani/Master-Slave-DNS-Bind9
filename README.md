@@ -9,30 +9,27 @@ srv02 IP address: 192.168.0.253[Change and use your own].\
 **Perquisites**\
 An Ubuntu / Debian machine\
 Updating Ubuntu/Debian (Both servers srv01 and srv02)\
-Before starting it is always a good practice to update your Linux system. To do this just open up your terminal and type the following commands:\
+Before starting it is always a good practice to update your Linux system. To do this, only open up your terminal and type the following commands:\
 
 ```
 sudo apt -y update && sudo apt -y upgrade
 ```
-
-\
-\
 Install Bind9 (Both servers srv01 and srv02)\
 The next step is to install Bind9 along with some utilities.\
 ```
-apt -y install bind9 bind9-utils bind9-dnsutils```
-\
-\
+apt -y install bind9 bind9-utils bind9-dnsutils
+```
 Configuring a static IP address (Both servers srv01 and srv02)
-The next logical step is to set a static IP address. The first thing we will do is to type the following command to find out the name of the network interface we are using.
+The next logical step is to set a static IP address. The first thing we will do is type the following command to find out the name of the network interface we are using.
 
 sudo ip -c link show
 Open the YAML configuration file for your netplan by typing the command below.
 ```
 sudo nano /etc/netplan/01-network-manager-all.yaml
 ```
-Enter the information below but customize it to fit your network information. I.E your interface name, IP address etc.
+Enter the information below but customize it to fit your network information. I.E your interface name, IP address, etc.
 
+```
 network:
   version: 2
   renderer: NetworkManager
@@ -40,18 +37,22 @@ network:
     Interfacename:
       dhcp4: no
       addresses:
-        - Your IP address
-      gateway4: Your gateway IP address
+        - Your_IP_address
+      routes:
+        - to: default
+          via: GATEWAY_IP
       nameservers:
-          addresses: Your DNS server IP address
+          addresses: DNS_IP1, DNS_IP2...
+```
 Now let’s apply this netplan by typing the command below.
-
+```
 sudo netplan apply
-Finally restart your network manager by using the command below.
-
+Finally, restart your network manager by using the command below.
+```
 sudo systemctl restart network-manager.service
-Changing the hosts file (Both servers srv01 and srv02)
-In this step we will change the hosts file to include the fully qualified name to this Ubuntu machine. The fully qualified name is the machine name followed by the domain name. To do so first we open the hosts file. I will be using Nano text editor.
+```
+Changing the host file (Both servers srv01 and srv02)
+In this step, we will change the host file to include the fully qualified name of this Ubuntu machine. The fully qualified name is the machine name followed by the domain name. To do so first we open the host file. I will be using the Nano text editor.
 
 sudo nano /etc/hosts
 Once the file opens change the host and IP name with your own IP and hostname along with the fully qualified name (see figure 1 and 2).
