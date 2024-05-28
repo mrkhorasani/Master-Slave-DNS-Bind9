@@ -170,8 +170,27 @@ sudo nano /etc/bind/zones/db.domain.loc
 Add the following configuration to your own file, keeping in mind that you need to change the details to fit your environment.
 
 P.S: Make sure to increment the serial by one every time you make a change.
+```
+; BIND data file for local loopback interface
+;
+$TTL    504800
+@       IN      SOA     srv01.domain.loc. root.srv01.domain.loc>
+                              5         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;Primary and secondary IP address and fully qualified name
+@       IN      NS      srv01.domain.loc.
+        IN      NS      srv02.domain.loc.
+@       IN      A       192.168.0.201
 
-
+;Arecords
+srv01    IN      A       192.168.0.201
+srv02    IN      A       192.168.0.202
+web     IN      A       20.20.20.20
+ftp     IN      A       12.12.12.12
+```
 The next step is to test the zone file using the named-checkzone utility. If there are no errors then your configurations are correct.
 ```
 named-checkzone domain.loc /etc/bind/zones/db.domain.loc
