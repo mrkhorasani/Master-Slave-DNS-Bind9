@@ -5,19 +5,16 @@ Domain used: my.domain.loc [Change and use your own].\
 Hostname: srv01 and srv02 [Change and use your own].\
 srv01 IP address: 192.168.0.252 [Change and use your own].\
 srv02 IP address: 192.168.0.253[Change and use your own].\
-
 ****************************
 **Perquisites**\
-An Ubuntu / Debian machine
-Updating Ubuntu/Debian (Both servers srv01 and srv02)
-Before starting it is always a good practice to update your Linux system. To do this just open up your terminal and type the following commands:
+An Ubuntu / Debian machine\
+Updating Ubuntu/Debian (Both servers srv01 and srv02)\
+Before starting it is always a good practice to update your Linux system. To do this just open up your terminal and type the following commands:\
+# sudo apt -y update && sudo apt -y upgrade\
 
-
-sudo apt -y update && sudo apt -y upgrade
-Install Bind9 (Both servers srv01 and srv02)
+Install Bind9 (Both servers srv01 and srv02)\
 The next step is to install Bind9 along with some utilities.
 
-![gtmetrix](https://github.com/mrkhorasani/Master-Slave-DNS-Bind9/assets/51242725/75113440-01dc-4471-b0df-d1c6a71bd619)
 
 
 sudo nano apt -y install bind9 bind9-utils bind9-dnsutils
