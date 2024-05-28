@@ -102,12 +102,11 @@ sudo chattr +i /etc/resolv.conf
 **#Firewall Configuration**\
 Permit (TCP & UDP port 53) in the firewall rule to use the DNS port
 ```
-firewall-cmd  --permanent --add-port=53/tcp
-firewall-cmd  --permanent --add-port=53/udp
+ufw allow 53
 ```
 Reload the firewall service
 ```
-firewall-cmd --reload
+ufw reload
 ```
 ******************************************
 # Editing Bind9 options file (Master Server)
