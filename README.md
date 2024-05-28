@@ -63,7 +63,7 @@ figure 1. /etc/hosts file srv01\
 ![image](https://github.com/mrkhorasani/Master-Slave-DNS-Bind9/assets/51242725/3d93af93-cbde-4c07-bc78-ae6b69809b40)
 
 
-figure 2. /etc/hosts file srv02\             
+figure 2. /etc/hosts file srv02             
 ![image](https://github.com/mrkhorasani/Master-Slave-DNS-Bind9/assets/51242725/26390bef-64b5-491f-825e-0ebc1cd05952)\
                 
 Next we will restart our server for the changes to take effect.
