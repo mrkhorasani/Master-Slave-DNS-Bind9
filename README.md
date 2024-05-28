@@ -63,7 +63,7 @@ figure 1. /etc/hosts file srv01\
 ![image](https://github.com/mrkhorasani/Master-Slave-DNS-Bind9/assets/51242725/2c76a86b-86c7-4353-8a0d-b3c1ce98aeca)
 \
 
-figure 2. /etc/hosts file srv02\             
+figure 2. /etc/hosts file srv02             
 ![image](https://github.com/mrkhorasani/Master-Slave-DNS-Bind9/assets/51242725/cde41d91-ba73-4af2-be1a-b705670c7a6a)
 \
                 
@@ -77,7 +77,7 @@ In this step, we will point our Ubuntu machine to use itself as a DNS server. To
 
 figure 3. /etc/resolv.conf file srv01\
 ![image](https://github.com/mrkhorasani/Master-Slave-DNS-Bind9/assets/51242725/0861b8f3-4411-4efb-87ad-3eddc7dbeef6)
-
+\
 figure 3. /etc/resolv.conf file srv02
 ![image](https://github.com/mrkhorasani/Master-Slave-DNS-Bind9/assets/51242725/87896482-5264-4426-86ea-7aeff873c776)
 
