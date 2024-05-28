@@ -243,7 +243,7 @@ sudo named-checkconf /etc/bind/named.conf.options
 The next step is to edit the file ```named.conf.local``` to add the zone information. To do so, use the following command.\
 
 The next step is to create the zones folder.\
-**Creating the folder**
+**#Creating the folder**
 ```
 sudo mkdir /etc/bind/zones
 
