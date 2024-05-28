@@ -97,7 +97,8 @@ limiting access to the resolv.conf file, after adding the DNS server.
 sudo chattr +i /etc/resolv.conf
 ```
 ******************************************
-#Editing Bind9 options file (Master Server)
+# Editing Bind9 options file (Master Server)
+
 Now that we have laid the groundwork for our Bind DNS server, let’s start editing the configuration.
 
 Start with editing the named.conf.options file. In this file, we will add what network/IP addresses can send a query to this server by defining an ACL (Access control list). We will also disable the recursion since we will be only using this server as an authoritative DNS server.
