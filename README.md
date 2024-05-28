@@ -57,12 +57,9 @@ In this step, we will change the host file to include the fully qualified name o
 ```
 sudo nano /etc/hosts
 ```
-Once the file opens change the host and IP name with your own IP and hostname along with the fully qualified name (see figure 1 and 2).
+Once the file opens change the host and IP name with your own IP and hostname along with the fully qualified name (see figure 1 and 2).\
 ![image](https://github.com/mrkhorasani/Master-Slave-DNS-Bind9/assets/51242725/618c01f2-65e6-44c7-8e65-f3938d23ac22)
 ![image](https://github.com/mrkhorasani/Master-Slave-DNS-Bind9/assets/51242725/9f523938-8526-4921-861b-aee16020a119)
-
-
-
 
 figure 1. /etc/hosts file srv01
 
