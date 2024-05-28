@@ -73,12 +73,14 @@ Next we will restart our server for the changes to take effect.
 sudo reboot
 ```
 Changing the DNS server (Both servers srv01 and srv02)\
-In this step, we will point our Ubuntu machine to use itself as a DNS server. To do this open ```/etc/resolv.conf``` using your favourite text editor, I will be using Nano. After this just add the IP address of your Linux machine (see figure 3 and 4).
+In this step, we will point our Ubuntu machine to use itself as a DNS server. To do this open ```/etc/resolv.conf``` using your favorite text editor, I will be using Nano. After this just add the IP address of your Linux machine (see figure 3 and 4).
 
-
-figure 3. /etc/resolv.conf file srv01
+figure 3. /etc/resolv.conf file srv01\
+![image](https://github.com/mrkhorasani/Master-Slave-DNS-Bind9/assets/51242725/0861b8f3-4411-4efb-87ad-3eddc7dbeef6)
 
 figure 3. /etc/resolv.conf file srv02
+![image](https://github.com/mrkhorasani/Master-Slave-DNS-Bind9/assets/51242725/87896482-5264-4426-86ea-7aeff873c776)
+
 An issue that I ran to from time to time when changing my DNS server in Ubuntu, is that it reverts to using localhost.
 
 A simple way to get passed this is removing the resolv.conf file > create it again, add the name server info to it, then deny access. Here are the commands below.
