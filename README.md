@@ -142,10 +142,10 @@ Edit the details below to fit your infrastructure (zone name and secondary serve
 
 Make sure to add the correct path for your master zone. I will create the zone within a folder called Zones, which We will create in the next step.
 ```
-//MasterZone 
-zone “domain.loc” {
+//MasterZone
+zone "domain.loc" {
  type master;
- file “/etc/bind/zones/db.domain.loc”;
+ file "/etc/bind/zones/db.domain.loc";
 //secondary server IP address
  allow-transfer {192.168.0.202;};
  also-notify {192.168.0.202;};
