@@ -4,18 +4,18 @@
 Domain used: my.domain.loc [Change and use your own].\
 Hostname: srv01 and srv02 [Change and use your own].\
 srv01 IP address: 192.168.0.252 [Change and use your own].\
-srv02 IP address: 192.168.0.253[Change and use your own].\
+srv02 IP address: 192.168.0.253[Change and use your own].
 ****************************
 **Perquisites**\
 An Ubuntu / Debian machine\
 Updating Ubuntu/Debian (Both servers srv01 and srv02)\
-Before starting it is always a good practice to update your Linux system. To do this, only open up your terminal and type the following commands:\
+Before starting it is always a good practice to update your Linux system. To do this, only open up your terminal and type the following commands:
 
 ```
 sudo apt -y update && sudo apt -y upgrade
 ```
 Install Bind9 (Both servers srv01 and srv02)\
-The next step is to install Bind9 along with some utilities.\
+The next step is to install Bind9 along with some utilities.
 ```
 apt -y install bind9 bind9-utils bind9-dnsutils
 ```
@@ -47,8 +47,9 @@ network:
 Now let’s apply this netplan by typing the command below.
 ```
 sudo netplan apply
-Finally, restart your network manager by using the command below.
 ```
+Finally, restart your network manager by using the command below.
+
 sudo systemctl restart network-manager.service
 ```
 Changing the host file (Both servers srv01 and srv02)
