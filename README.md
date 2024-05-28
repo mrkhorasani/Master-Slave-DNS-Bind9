@@ -207,7 +207,7 @@ Following the steps above so far: the master server should be configured complet
 
 The next step is to configure the secondary server to receive a copy of the master zone.
 
-Much like the master server, the first thing we will configure is the Bind9 named.conf.options file. We will open the file using the following command.
+Much like the master server, the first thing we will configure is the Bind9 ```named.conf.options``` file. We will open the file using the following command.
 ```
 sudo nano /etc/bind/named.conf.options
 ```
@@ -240,7 +240,7 @@ You can check the syntax using the following command. If everything is correct, 
 ```
 sudo named-checkconf /etc/bind/named.conf.options
 ```
-The next step is to edit the file named.conf.local to add the zone information. To do so, use the following command.
+The next step is to edit the file ```named.conf.local``` to add the zone information. To do so, use the following command.
 
 ```
 sudo nano /etc/bind/named.conf.local
