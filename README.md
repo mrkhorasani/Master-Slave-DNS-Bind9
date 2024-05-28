@@ -99,8 +99,8 @@ limiting access to the resolv.conf file, after adding the DNS server.
 ```
 sudo chattr +i /etc/resolv.conf
 ```
-**#Firewall Configuration**
-We want to permit (TCP & UDP port 53) in the firewall rule to use the DNS port
+**#Firewall Configuration**\
+Permit (TCP & UDP port 53) in the firewall rule to use the DNS port
 ```
 firewall-cmd  --permanent --add-port=53/tcp
 firewall-cmd  --permanent --add-port=53/udp
