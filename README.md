@@ -1,14 +1,14 @@
 # Master-Slave-DNS-Bind9
 
 **Information**\
-Domain used: domain.loc [Change and use your own].\
+Domain Name: domain.loc [Change and use your own].\
 Hostname: srv01 and srv02 [Change and use your own].\
 srv01 IP address: 192.168.0.201 [Change and use your own].\
 srv02 IP address: 192.168.0.202[Change and use your own].
 ****************************
 **Perquisites**\
 An Ubuntu / Debian machine\
-In my scenario, I used "Ubuntu 22.04.4 LTS". The image below shows the details of our operating system:\
+In this scenario, we use "Ubuntu 22.04.4 LTS". The image below shows the details of our operating system:\
 ![image](https://github.com/mrkhorasani/Master-Slave-DNS-Bind9/assets/51242725/f4fa3e09-a309-4783-bbba-53053ad6d08d)
 
 #Updating Ubuntu/Debian (Both servers srv01 and srv02)\
